@@ -1,0 +1,46 @@
+
+<article>
+  <img src="./assets/images/cap.png" width="1440px" height="200px" alt="tecnologia" display= block margin= 0 auto/><br>
+</article>   
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" background-color: #CC1414;>
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><b>Tienda de Accesorios DyK </b></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link"[routerLink]="['accesorios']">Accesorios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"*ngIf="auth.user$ | async as user" [routerLink]="['addArticulo']">Agregar nuevo Articulo</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link"*ngIf="auth.user$ | async as user" [routerLink]="['plataforma']">Plataforma</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['items']">Historia de tecnologia</a>
+          </li>
+      
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+
+
+          <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+          <button class="btn btn-outline-danger" (click)="auth.logout({returnTo: document.location.origin})">Salir</button>
+        </ng-container>
+        <ng-template #loggedOut>
+          <button class="btn btn-outline-success" type="submit" (click)="auth.loginWithRedirect()">Ingresar</button>
+        </ng-template>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+ 

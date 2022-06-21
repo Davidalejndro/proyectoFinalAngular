@@ -1,0 +1,8 @@
+<h1>Bienvenidos a la tienda privada de tecnologia Dyk</h1>
+<hr>
+<p>Para ver mas información debes de iniciar sesión</p>
+<br>
+<ul *ngIf="auth.user$ | async as user">
+    <li>{{user.name}}</li>
+    <li>{{user.email}}</li>
+</ul>

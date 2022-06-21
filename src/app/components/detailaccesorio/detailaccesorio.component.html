@@ -1,0 +1,17 @@
+<h1> Estas mirando {{accesorios?.name}}</h1>
+<hr>
+<div class="row">
+<div class="col-md-4">
+<img [src]="accesorios?.img" class="img-fluid">
+<br><br>
+</div>
+<div class="col-md-8">
+<h3>{{accesorios?.name}}</h3>
+<hr>
+<p>Descripción {{accesorios?.description}}</p>
+<br>
+<p>Plataforma : {{accesorios?.platform}}</p>
+<a class="btn btn-outline-primary" [routerLink]="['/accesorios']">Volver</a>
+<a class="btn btn-outline-primary" [routerLink]="['/editaccesorio', id]">Editar</a>
+</div>
+</div>
